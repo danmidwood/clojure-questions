@@ -46,9 +46,9 @@
 
 (defn -main [& _]
   (loop [time (now)]
+    (Thread/sleep 300000)
     (println "Checking for new questions.")
     (doseq [message (questions time)]
       (println "Tweeting:" message)
       (tweet message))
-    (Thread/sleep 300000)
     (recur (now))))
