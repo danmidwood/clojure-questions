@@ -5,7 +5,7 @@ questions that are tagged with 'clojure'. It uses the stackoverflow API
 to poll for new questions every 5 minutes and tweets them.
 
 The bot is running under the name
-[@ClojureQs](http://twitter.com/ClojureQ).
+[@ClojureQs](http://twitter.com/ClojureQs).
 
 ## Usage
 
