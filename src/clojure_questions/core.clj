@@ -3,8 +3,6 @@
             [twitter.api.restful :as tr]
             [clj-http.client :as http]
             [cheshire.core :as json]
-            [hobbit.isgd :as isgd]
-            [hobbit.core :as hobbit]
             [clojure.string :as string])
   (:gen-class))
 
@@ -25,15 +23,11 @@
 
 (defn compose-tweets [questions]
   (for [{:strs [title question_id]} questions
-        :let [link (hobbit/shorten
-                     (isgd/isgd-shortener)
-                     (str "http://stackoverflow.com/questions/" question_id))
-              link-count (count link)
+        :let [link (str "http://stackoverflow.com/questions/" question_id)
               title-count (count title)]]
-    (if (>= 140 (doto (+ title-count link-count 1) prn))
+    (if (>= 140 (+ title-count 21))
       (str title \space link)
-      (str (string/join (take (- 140 (+ link-count 2)) title))
-           \u2026 \space link))))
+      (str (string/join (take 115 title)) \u2026 \space link))))
 
 (defn questions [min-date]
   (compose-tweets
