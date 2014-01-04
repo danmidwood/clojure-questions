@@ -48,6 +48,7 @@
   "Find all questions asked in the last one hour."
   (-> (http/get stack-api-url
                 {:query-params {:site "stackoverflow"
+                                :sort "creation"
                                 :tagged "clojure"
                                 :fromdate (quot (- (System/currentTimeMillis)
                                                    (* 1 60 60 1000)
