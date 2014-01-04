@@ -1,0 +1,1 @@
+tweet: lein run -m clojure-questions.core
