@@ -18,9 +18,8 @@
 (defn send-tweet [{:keys [title link]}]
   (let [msg (str title \space link)]
     (println "Tweeting: " msg)
-    ;; (tr/statuses-update :oauth-creds creds
-    ;;                     :params {:status msg})
-    ))
+    (tr/statuses-update :oauth-creds creds
+                        :params {:status msg})))
 
 (defn send-tweets [tweets] (map send-tweet tweets))
 
