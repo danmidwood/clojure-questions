@@ -21,6 +21,8 @@
     (tr/statuses-update :oauth-creds creds
                         :params {:status msg})))
 
+
+
 (defn send-tweets [tweets] (map send-tweet tweets))
 
 (defn trim [s length]
@@ -30,7 +32,8 @@
 
 (defn make-tweet [{:keys [title link]}]
   (let [short-url (shorten link)
-        safe-title (trim title (- 140 (count short-url) 1))] ; 1 for a space
+        decoded-title (org.apache.commons.lang3.StringEscapeUtils/unescapeHtml4 title)
+        safe-title (trim decoded-title (- 140 (count short-url) 1))] ; 1 for a space
     {:title safe-title
      :link short-url}))
 

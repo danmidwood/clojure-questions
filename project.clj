@@ -4,6 +4,7 @@
                  [clj-http "0.7.8"]
                  [cheshire "5.3.0"]
                  [environ "0.4.0"]
-                 [twitter-api "0.7.5"]]
+                 [twitter-api "0.7.5"]
+                 [org.apache.commons/commons-lang3 "3.2.1"]]
   :plugins [[lein-environ "0.4.0"]]
   :main clojure-questions.core)
